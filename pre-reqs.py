@@ -18,7 +18,7 @@ def get_courses() -> tuple[dict[list[list]], list[str]]:
     course_titles = []
     # get user submissions
     while True:
-        course_title = input("Course Title: ")
+        course_title = input("Course Title: ").strip().replace(" ", "")
         if course_title.lower() == "stop":  # break from loop
             break
 
@@ -124,6 +124,7 @@ def display_results(
     optimal_courses: list[str],
     undecided_courses: list[list[str]],
 ) -> None:
+    print()
     print("NEEDED COURSES:")
     print(", ".join(needed_courses) + "\n")
     if len(optimal_courses) > 0:
